@@ -1,0 +1,19 @@
+#include <dt-bindings/zmk/pointing.h>
+
+/ {
+    behaviors {
+        /omit-if-no-ref/ button_scroll: button_scroll {
+            compatible = "zmk,behavior-button-scroll";
+            #binding-cells = <1>;
+            display-name = "Button Scroll";
+            button = <MB4>;
+            timeout-ms = <150>;
+            wheel-step = <1>;
+        };
+    };
+
+    button_scroll_input_listener {
+        compatible = "zmk,input-listener";
+        device = <&button_scroll>;
+    };
+};

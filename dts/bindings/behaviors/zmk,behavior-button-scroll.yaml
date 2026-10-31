@@ -1,0 +1,20 @@
+# SPDX-License-Identifier: MIT
+
+description: Wheel pulses while holding a mouse button until an idle timeout
+compatible: "zmk,behavior-button-scroll"
+include: one_param.yaml
+
+properties:
+  button:
+    type: int
+    default: 8
+    enum: [1, 2, 4, 8, 16]
+    description: One mouse button mask (MB1 through MB5); defaults to MB4.
+  timeout-ms:
+    type: int
+    default: 150
+    description: Positive idle time after the last processed rotation before release.
+  wheel-step:
+    type: int
+    default: 1
+    description: Number of wheel units per invocation (1 through 127).
