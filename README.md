@@ -69,8 +69,9 @@ Override settings as needed, matching `button` to your host-side configuration:
   Release is timer-driven and does not depend on the encoder release callback.
 - The timeout starts from the last processed invocation. Keys and layer changes
   do not cancel it; pointer motion while the button is held may cause dragging.
-- Use one instance for both directions. Avoid other instances or `&mkp` bindings
-  holding the same button concurrently; button ownership is not coordinated.
+- Use one instance for both directions to share the idle timeout. If another
+  instance or an `&mkp` binding also holds the same button, it remains pressed
+  after this instance's timeout until all holders release it.
 - Host recognition, USB/BLE behavior and effective scroll amount need hardware
   testing. Adjust the timeout and wheel step for your setup.
 
