@@ -9,7 +9,7 @@ properties:
     type: int
     default: 8
     enum: [1, 2, 4, 8, 16]
-    description: One mouse button mask (MB1 through MB5); defaults to MB4.
+    description: Mouse button to hold while scrolling (MB1 through MB5).
   timeout-ms:
     type: int
     default: 150

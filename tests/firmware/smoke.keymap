@@ -1,6 +1,6 @@
 /* Compile-only mock scanner fixture. */
 #include <behaviors.dtsi>
-#include "../../examples/common-keymap.dtsi"
+#include <behaviors/button_scroll.dtsi>
 
 &settings_reset_kscan {
     rows = <1>;
@@ -10,7 +10,8 @@
     keymap {
         compatible = "zmk,keymap";
         base {
-            bindings = <&mb4_msc SCRL_UP>;
+            bindings = <&button_scroll SCRL_UP>;
+            sensor-bindings = <&enc_scaler SCRL_UP SCRL_DOWN>;
         };
     };
 };

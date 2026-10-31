@@ -1,31 +1,11 @@
-/* Replacement for the old mb4_msc macro and enc_scaler behavior.
- * Do not also include behaviors/button_scroll.dtsi for this custom instance.
- * Keep enc_kp, enc_kp_long and enc_msc unchanged.
- */
-#include <dt-bindings/zmk/pointing.h>
+/* Include once in the shared keymap. Both directions use the same instance. */
+#include <behaviors/button_scroll.dtsi>
 
-/ {
-    behaviors {
-        mb4_msc: mb4_msc {
-            compatible = "zmk,behavior-button-scroll";
-            #binding-cells = <1>;
-            button = <MB4>;
-            timeout-ms = <150>;
-            wheel-step = <1>;
-        };
-
-        enc_scaler: encoder_mb4_wheel_scrl {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&mb4_msc>, <&mb4_msc>;
-            tap-ms = <0>;
-        };
-    };
-
-    scaler_input_listener {
-        compatible = "zmk,input-listener";
-        device = <&mb4_msc>;
-    };
+/* Optional settings; match the button to your host-side scroll action. */
+&button_scroll {
+    button = <MB3>;
+    timeout-ms = <150>;
+    wheel-step = <1>;
 };
 
 /* In the chosen layer:

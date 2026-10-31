@@ -10,6 +10,13 @@
             timeout-ms = <150>;
             wheel-step = <1>;
         };
+
+        /omit-if-no-ref/ enc_scaler: encoder_button_scroll {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&button_scroll>, <&button_scroll>;
+            tap-ms = <0>;
+        };
     };
 
     button_scroll_input_listener {
