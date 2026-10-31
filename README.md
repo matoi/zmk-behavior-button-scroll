@@ -63,10 +63,6 @@ Override settings as needed, matching `button` to your host-side configuration:
 | `timeout-ms` | `150` | Positive idle timeout in milliseconds |
 | `wheel-step` | `1` | 1–127 wheel units per invocation |
 
-For a shared keymap, include the module there and remove any local `enc_scaler`
-definition to avoid duplicate labels. Keep hardware-specific encoder settings in
-the board configuration. See [examples/common-keymap.dtsi](examples/common-keymap.dtsi).
-
 ## Behavior and limitations
 
 - Each invocation sends one wheel pulse and extends the button's idle timeout.
